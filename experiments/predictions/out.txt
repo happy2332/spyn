@@ -1,0 +1,245 @@
+C&C
+C&C
+['murders', 'rapes', 'robberies', 'assaults', 'burglaries', 'larcenies', 'autoTheft', 'arsons']
+['murders', 'rapes', 'robberies', 'assaults', 'burglaries', 'larcenies', 'autoTheft', 'arsons']
+8
+(1786, 8)
+8
+(1786, 8)
+done
+LL
+model size
+done
+LL
+model size
+model spnComputeLambdas
+model spnComputeLambdas
+model spnComputeLambdas2
+model spnComputeLambdas2
+abs error
+abs error
+done
+model size
+LL
+done
+model size
+LL
+abs error
+abs error
+done
+LL
+model size
+done
+LL
+model size
+model spnComputeLambdas
+model spnComputeLambdas
+model spnComputeLambdas2
+model spnComputeLambdas2
+abs error
+abs error
+done
+model size
+LL
+done
+model size
+LL
+abs error
+abs error
+done
+LL
+model size
+done
+LL
+model size
+model spnComputeLambdas
+model spnComputeLambdas
+model spnComputeLambdas2
+model spnComputeLambdas2
+abs error
+abs error
+done
+model size
+LL
+done
+model size
+LL
+abs error
+abs error
+done
+LL
+model size
+done
+LL
+model size
+model spnComputeLambdas
+model spnComputeLambdas
+model spnComputeLambdas2
+model spnComputeLambdas2
+abs error
+abs error
+done
+model size
+LL
+done
+model size
+LL
+abs error
+abs error
+done
+LL
+model size
+done
+LL
+model size
+model spnComputeLambdas
+model spnComputeLambdas
+model spnComputeLambdas2
+model spnComputeLambdas2
+abs error
+abs error
+done
+model size
+LL
+done
+model size
+LL
+abs error
+abs error
+C&C
+['murders', 'rapes', 'robberies', 'assaults', 'burglaries', 'larcenies', 'autoTheft', 'arsons']
+8
+(1786, 8)
+done
+LL
+model size
+model spnComputeLambdas
+model spnComputeLambdas2
+done
+LL
+model size
+model spnComputeLambdas
+model spnComputeLambdas2
+done
+LL
+model size
+model spnComputeLambdas
+model spnComputeLambdas2
+done
+LL
+model size
+model spnComputeLambdas
+model spnComputeLambdas2
+done
+LL
+model size
+model spnComputeLambdas
+model spnComputeLambdas2
+C&C
+['murders', 'rapes', 'robberies', 'assaults', 'burglaries', 'larcenies', 'autoTheft', 'arsons']
+8
+(1786, 8)
+done
+LL
+model size
+model spnComputeLambdas
+model spnComputeLambdas2
+abs error
+done
+model size
+LL
+abs error
+done
+LL
+model size
+model spnComputeLambdas
+model spnComputeLambdas2
+abs error
+done
+model size
+LL
+abs error
+done
+LL
+model size
+model spnComputeLambdas
+model spnComputeLambdas2
+abs error
+done
+model size
+LL
+abs error
+done
+LL
+model size
+model spnComputeLambdas
+model spnComputeLambdas2
+abs error
+done
+model size
+LL
+abs error
+done
+LL
+model size
+model spnComputeLambdas
+model spnComputeLambdas2
+abs error
+done
+model size
+LL
+abs error
+C&C
+['murders', 'rapes', 'robberies', 'assaults', 'burglaries', 'larcenies', 'autoTheft', 'arsons']
+8
+(1902, 8)
+done
+LL
+model size
+model spnComputeLambdas
+model spnComputeLambdas2
+abs error
+done
+model size
+LL
+abs error
+done
+LL
+model size
+model spnComputeLambdas
+model spnComputeLambdas2
+abs error
+done
+model size
+LL
+abs error
+done
+LL
+model size
+model spnComputeLambdas
+model spnComputeLambdas2
+abs error
+done
+model size
+LL
+abs error
+done
+LL
+model size
+model spnComputeLambdas
+model spnComputeLambdas2
+abs error
+done
+model size
+LL
+abs error
+done
+LL
+model size
+model spnComputeLambdas
+model spnComputeLambdas2
+abs error
+done
+model size
+LL
+abs error

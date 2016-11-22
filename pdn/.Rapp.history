@@ -1,0 +1,44 @@
+options(warn = -1)#
+#
+ptestpdn <- function(data) {#
+  library(grid)#
+  library(partykit)#
+  cols = ncol(data)#
+  adjc = matrix(0.0 ,nrow = cols, ncol = cols)#
+  rownames(adjc)<-colnames(data)#
+  for(v in 1:cols){#
+    if(var(data[,v]) > 0){#
+	    fmla = as.formula(paste("V" ,v, " ~ .", sep = ''))#
+	    tree = glmtree(fmla, data, family="poisson")#
+	    ptest = sctest.modelparty(tree,node=1)[2,]#
+	    if(length(ptest) > 0){#
+	      adjc[names(ptest), v] = ptest#
+	    }#
+    }#
+  }#
+  adjc[is.na(adjc)]<-0.0  #
+  return(adjc) #
+}
+ptestpdn(None)
+ptestpdn()
+library('Formula')
+install.packages('Formula'')
+install.packages('Formula')
+data = as.data.frame(as.matrix(c(1,2,3,4,5,6,7,8,9, ncol=3)))
+data
+data = (as.matrix(c(1,2,3,4,5,6,7,8,9, ncol=3)))
+data
+data = (as.matrix(c(1,2,3,4,5,6,7,8,9, ncols=3)))
+data
+data = matrix(c(1,2,3,4,5,6,7,8,9, cols=3))
+data
+data = matrix(c(1,2,3,4,5,6,7,8,9, ncol=3))
+data
+data = matrix(c(1,2,3,4,5,6,7,8,9, ncol=3))
+data
+data = matrix(c(1,2,3,4,5,6,7,8,9, ncol=3, nrow=3))
+data
+data = matrix(c(1,2,3,4,5,6,7,8,9), ncol=3, nrow=3)
+data
+ptestpdn(data)
+ptestpdn(as.data.frame(data))

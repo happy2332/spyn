@@ -1,0 +1,76 @@
+wl/1mutag.build_wl_corpus.classes.csv
+wl/1mutag.build_wl_corpus.csv
+0.00100000000000000002081668171172
+{"SVM raw Accuracy raw \t\t": [0.8266666666666667, 0.8066666666666666, 0.84, 0.8079470198675497, 0.8344370860927153], "SVM raw Accuracy std \t\t": [0.7466666666666667, 0.72, 0.7533333333333333, 0.8079470198675497, 0.7682119205298014], "SVM raw Accuracy nml \t\t": [0.7066666666666667, 0.6733333333333333, 0.6666666666666666, 0.6622516556291391, 0.6622516556291391], "SVM raw AUC raw \t\t": [0.8904999999999998, 0.863, 0.8975000000000001, 0.8785294117647058, 0.8601960784313726], "SVM raw AUC std \t\t": [0.8707000000000001, 0.8502, 0.8457000000000001, 0.8502941176470589, 0.8407843137254902], "SVM raw AUC nml \t\t": [0.8085000000000001, 0.8522000000000001, 0.5, 0.5, 0.5], "SPN per class ll -> LR Accuracy raw \t\t": [0.8666666666666667, 0.7066666666666667, 0.86, 0.8410596026490066, 0.8609271523178808], "SPN per class ll -> LR Accuracy std \t\t": [0.8933333333333333, 0.7333333333333333, 0.8666666666666667, 0.8609271523178808, 0.8543046357615894], "SPN per class ll -> LR Accuracy nml \t\t": [0.6666666666666666, 0.6666666666666666, 0.6666666666666666, 0.6622516556291391, 0.6622516556291391], "SPN per class ll -> LR AUC raw \t\t": [0.9557, 0.8624, 0.9541, 0.9344117647058824, 0.9388235294117646], "SPN per class ll -> LR AUC std \t\t": [0.9533, 0.8118, 0.9535, 0.9334313725490196, 0.9284313725490194], "SPN per class ll -> LR AUC nml \t\t": [0.9552999999999999, 0.9526, 0.9492999999999999, 0.952843137254902, 0.9372549019607843], "SPN per class gradients -> SVM Accuracy raw \t\t": [0.7933333333333333, 0.72, 0.8066666666666666, 0.8410596026490066, 0.847682119205298], "SPN per class gradients -> SVM Accuracy std \t\t": [0.8866666666666667, 0.7866666666666666, 0.7933333333333333, 0.8675496688741722, 0.8145695364238411], "SPN per class gradients -> SVM Accuracy nml \t\t": [0.6666666666666666, 0.6666666666666666, 0.6666666666666666, 0.6622516556291391, 0.6622516556291391], "SPN per class gradients -> SVM AUC raw \t\t": [0.9561, 0.8572000000000001, 0.8563, 0.9185294117647059, 0.9254901960784314], "SPN per class gradients -> SVM AUC std \t\t": [0.9565, 0.8632, 0.8627, 0.9369607843137255, 0.9374509803921569], "SPN per class gradients -> SVM AUC nml \t\t": [0.5, 0.5, 0.5, 0.5, 0.5], "SPN per class activations -> SVM Accuracy raw \t\t": [0.8066666666666666, 0.78, 0.8066666666666666, 0.8211920529801324, 0.8609271523178808], "SPN per class activations -> SVM Accuracy std \t\t": [0.8, 0.7466666666666667, 0.7866666666666666, 0.7615894039735099, 0.7682119205298014], "SPN per class activations -> SVM Accuracy nml \t\t": [0.6666666666666666, 0.6666666666666666, 0.6666666666666666, 0.6622516556291391, 0.6622516556291391], "SPN per class activations -> SVM AUC raw \t\t": [0.8783000000000001, 0.9222, 0.8649, 0.900686274509804, 0.9347058823529412], "SPN per class activations -> SVM AUC std \t\t": [0.8823, 0.819, 0.8452999999999999, 0.768921568627451, 0.8382352941176471], "SPN per class activations -> SVM AUC nml \t\t": [0.5, 0.5, 0.5, 0.5, 0.5]}
+SVM raw Accuracy raw 		: 0.823143 (+/- 0.030439) 
+SVM raw Accuracy std 		: 0.759232 (+/- 0.064696) 
+SVM raw Accuracy nml 		: 0.674234 (+/- 0.037378) 
+SVM raw AUC raw 		: 0.877945 (+/- 0.032844) 
+SVM raw AUC std 		: 0.851536 (+/- 0.022809) 
+SVM raw AUC nml 		: 0.632140 (+/- 0.363197) 
+SPN per class ll -> LR Accuracy raw 		: 0.827064 (+/- 0.135983) 
+SPN per class ll -> LR Accuracy std 		: 0.841713 (+/- 0.124745) 
+SPN per class ll -> LR Accuracy nml 		: 0.664901 (+/- 0.004836) 
+SPN per class ll -> LR AUC raw 		: 0.929087 (+/- 0.076839) 
+SPN per class ll -> LR AUC std 		: 0.916093 (+/- 0.118800) 
+SPN per class ll -> LR AUC nml 		: 0.949460 (+/- 0.014297) 
+SPN per class gradients -> SVM Accuracy raw 		: 0.801748 (+/- 0.102142) 
+SPN per class gradients -> SVM Accuracy std 		: 0.829757 (+/- 0.089895) 
+SPN per class gradients -> SVM Accuracy nml 		: 0.664901 (+/- 0.004836) 
+SPN per class gradients -> SVM AUC raw 		: 0.902724 (+/- 0.088570) 
+SPN per class gradients -> SVM AUC std 		: 0.911362 (+/- 0.089783) 
+SPN per class gradients -> SVM AUC nml 		: 0.500000 (+/- 0.000000) 
+SPN per class activations -> SVM Accuracy raw 		: 0.815091 (+/- 0.059258) 
+SPN per class activations -> SVM Accuracy std 		: 0.772627 (+/- 0.041972) 
+SPN per class activations -> SVM Accuracy nml 		: 0.664901 (+/- 0.004836) 
+SPN per class activations -> SVM AUC raw 		: 0.900158 (+/- 0.058315) 
+SPN per class activations -> SVM AUC std 		: 0.830751 (+/- 0.082982) 
+SPN per class activations -> SVM AUC nml 		: 0.500000 (+/- 0.000000) 
+
+wl/2ptc.build_wl_corpus.classes.csv
+wl/2ptc.build_wl_corpus.csv
+0.00100000000000000002081668171172
+{"SVM raw Accuracy raw \t\t": [0.5291970802919708, 0.5583941605839416, 0.5144927536231884, 0.5579710144927537, 0.5579710144927537], "SVM raw Accuracy std \t\t": [0.5437956204379562, 0.5583941605839416, 0.5398550724637681, 0.5579710144927537, 0.5289855072463768], "SVM raw Accuracy nml \t\t": [0.5255474452554745, 0.5583941605839416, 0.5579710144927537, 0.572463768115942, 0.5579710144927537], "SVM raw AUC raw \t\t": [0.5628747366715281, 0.46286393345216875, 0.4751437087502661, 0.5219288907813497, 0.505641899084522], "SVM raw AUC std \t\t": [0.5481823583427862, 0.5123696861664775, 0.5155418352139663, 0.5009314456035767, 0.5734777517564402], "SVM raw AUC nml \t\t": [0.5334899800140441, 0.5, 0.4500212901852247, 0.5690068128592718, 0.5], "SPN per class ll -> LR Accuracy raw \t\t": [0.6532846715328468, 0.6934306569343066, 0.6847826086956522, 0.7355072463768116, 0.677536231884058], "SPN per class ll -> LR Accuracy std \t\t": [0.635036496350365, 0.6496350364963503, 0.6847826086956522, 0.7101449275362319, 0.6594202898550725], "SPN per class ll -> LR Accuracy nml \t\t": [0.5583941605839416, 0.5583941605839416, 0.5579710144927537, 0.5579710144927537, 0.5579710144927537], "SPN per class ll -> LR AUC raw \t\t": [0.6874088478366552, 0.7753470534219198, 0.7595273578880136, 0.8305301256120929, 0.7696401958697041], "SPN per class ll -> LR AUC std \t\t": [0.6695295197968996, 0.7241397936585102, 0.7622418565041515, 0.8311688311688312, 0.7476048541622311], "SPN per class ll -> LR AUC nml \t\t": [0.8053259871441689, 0.7900394317506617, 0.8063657653821588, 0.8312752820949543, 0.8260591867149244], "SPN per class gradients -> SVM Accuracy raw \t\t": [0.5656934306569343, 0.6240875912408759, 0.5434782608695652, 0.5579710144927537, 0.5833333333333334], "SPN per class gradients -> SVM Accuracy std \t\t": [0.5948905109489051, 0.6605839416058394, 0.5543478260869565, 0.5579710144927537, 0.5760869565217391], "SPN per class gradients -> SVM Accuracy nml \t\t": [0.5583941605839416, 0.5583941605839416, 0.5579710144927537, 0.5579710144927537, 0.5579710144927537], "SPN per class gradients -> SVM AUC raw \t\t": [0.6468427591422244, 0.6901636687732944, 0.5548754524164361, 0.7671918245688738, 0.6233233979135618], "SPN per class gradients -> SVM AUC std \t\t": [0.6460325176902716, 0.7281369848214769, 0.5670108579944646, 0.5586544602938045, 0.603204172876304], "SPN per class gradients -> SVM AUC nml \t\t": [0.5, 0.5, 0.5, 0.5, 0.5], "SPN per class activations -> SVM Accuracy raw \t\t": [0.5693430656934306, 0.6204379562043796, 0.5652173913043478, 0.5579710144927537, 0.5579710144927537], "SPN per class activations -> SVM Accuracy std \t\t": [0.5364963503649635, 0.5583941605839416, 0.5181159420289855, 0.5579710144927537, 0.5507246376811594], "SPN per class activations -> SVM Accuracy nml \t\t": [0.5583941605839416, 0.5583941605839416, 0.5579710144927537, 0.5579710144927537, 0.5579710144927537], "SPN per class activations -> SVM AUC raw \t\t": [0.682601415221736, 0.6748230972829903, 0.5890461997019374, 0.5764051522248244, 0.4285448158398978], "SPN per class activations -> SVM AUC std \t\t": [0.5489655917463403, 0.5041322314049587, 0.5462529274004684, 0.5000266127315307, 0.5852671918245689], "SPN per class activations -> SVM AUC nml \t\t": [0.5, 0.5, 0.5, 0.5, 0.5]}
+SVM raw Accuracy raw 		: 0.543605 (+/- 0.041068) 
+SVM raw Accuracy std 		: 0.545800 (+/- 0.025077) 
+SVM raw Accuracy nml 		: 0.554469 (+/- 0.034644) 
+SVM raw AUC raw 		: 0.505691 (+/- 0.079378) 
+SVM raw AUC std 		: 0.530101 (+/- 0.059881) 
+SVM raw AUC nml 		: 0.510504 (+/- 0.088486) 
+SPN per class ll -> LR Accuracy raw 		: 0.688908 (+/- 0.060061) 
+SPN per class ll -> LR Accuracy std 		: 0.667804 (+/- 0.059625) 
+SPN per class ll -> LR Accuracy nml 		: 0.558140 (+/- 0.000464) 
+SPN per class ll -> LR AUC raw 		: 0.764491 (+/- 0.102332) 
+SPN per class ll -> LR AUC std 		: 0.746937 (+/- 0.117649) 
+SPN per class ll -> LR AUC nml 		: 0.811813 (+/- 0.033579) 
+SPN per class gradients -> SVM Accuracy raw 		: 0.574913 (+/- 0.062042) 
+SPN per class gradients -> SVM Accuracy std 		: 0.588776 (+/- 0.086539) 
+SPN per class gradients -> SVM Accuracy nml 		: 0.558140 (+/- 0.000464) 
+SPN per class gradients -> SVM AUC raw 		: 0.656479 (+/- 0.157821) 
+SPN per class gradients -> SVM AUC std 		: 0.620608 (+/- 0.138646) 
+SPN per class gradients -> SVM AUC nml 		: 0.500000 (+/- 0.000000) 
+SPN per class activations -> SVM Accuracy raw 		: 0.574188 (+/- 0.052621) 
+SPN per class activations -> SVM Accuracy std 		: 0.544340 (+/- 0.034254) 
+SPN per class activations -> SVM Accuracy nml 		: 0.558140 (+/- 0.000464) 
+SPN per class activations -> SVM AUC raw 		: 0.590284 (+/- 0.204995) 
+SPN per class activations -> SVM AUC std 		: 0.536929 (+/- 0.070752) 
+SPN per class activations -> SVM AUC nml 		: 0.500000 (+/- 0.000000) 
+
+wl/3enzymes.build_wl_corpus.classes.csv
+wl/3enzymes.build_wl_corpus.csv
+0.00100000000000000002081668171172
+{"SVM raw Accuracy raw \t\t": [0.14791666666666667, 0.21875, 0.20625, 0.23125, 0.18541666666666667], "SVM raw Accuracy std \t\t": [0.1625, 0.19791666666666666, 0.21041666666666667, 0.22916666666666666, 0.18333333333333332], "SVM raw Accuracy nml \t\t": [0.19166666666666668, 0.19791666666666666, 0.17291666666666666, 0.175, 0.19166666666666668], "SPN per class ll -> LR Accuracy raw \t\t": [0.23125, 0.3229166666666667, 0.4708333333333333, 0.5041666666666667, 0.3458333333333333], "SPN per class ll -> LR Accuracy std \t\t": [0.11041666666666666, 0.17083333333333334, 0.25416666666666665, 0.27708333333333335, 0.16666666666666666], "SPN per class ll -> LR Accuracy nml \t\t": [0.16458333333333333, 0.25, 0.2875, 0.24375, 0.25625], "SPN per class gradients -> SVM Accuracy raw \t\t": [0.29791666666666666, 0.29375, 0.4395833333333333, 0.51875, 0.3416666666666667], "SPN per class gradients -> SVM Accuracy std \t\t": [0.23125, 0.31875, 0.3875, 0.41041666666666665, 0.31875], "SPN per class gradients -> SVM Accuracy nml \t\t": [0.15833333333333333, 0.18958333333333333, 0.18333333333333332, 0.2604166666666667, 0.22291666666666668], "SPN per class activations -> SVM Accuracy raw \t\t": [0.19583333333333333, 0.35, 0.39375, 0.4791666666666667, 0.30416666666666664], "SPN per class activations -> SVM Accuracy std \t\t": [0.14166666666666666, 0.20625, 0.19583333333333333, 0.26875, 0.19166666666666668], "SPN per class activations -> SVM Accuracy nml \t\t": [0.15833333333333333, 0.18958333333333333, 0.18333333333333332, 0.2604166666666667, 0.22291666666666668]}
+SVM raw Accuracy raw 		: 0.197917 (+/- 0.065352) 
+SVM raw Accuracy std 		: 0.196667 (+/- 0.050912) 
+SVM raw Accuracy nml 		: 0.185833 (+/- 0.022322) 
+SPN per class ll -> LR Accuracy raw 		: 0.375000 (+/- 0.223820) 
+SPN per class ll -> LR Accuracy std 		: 0.195833 (+/- 0.137026) 
+SPN per class ll -> LR Accuracy nml 		: 0.240417 (+/- 0.091221) 
+SPN per class gradients -> SVM Accuracy raw 		: 0.378333 (+/- 0.196046) 
+SPN per class gradients -> SVM Accuracy std 		: 0.333333 (+/- 0.140436) 
+SPN per class gradients -> SVM Accuracy nml 		: 0.202917 (+/- 0.079090) 
+SPN per class activations -> SVM Accuracy raw 		: 0.344583 (+/- 0.210522) 
+SPN per class activations -> SVM Accuracy std 		: 0.200833 (+/- 0.090839) 
+SPN per class activations -> SVM Accuracy nml 		: 0.202917 (+/- 0.079090) 
+
+
