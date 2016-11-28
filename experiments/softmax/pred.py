@@ -156,51 +156,51 @@ if __name__ == '__main__':
     name = "twospirals"
     train1 = numpy.loadtxt("data/synthetic/"+name+".csv", delimiter=",")
     
-    print(train1)
-    print(train1[:,2])
+    print(train1.shape)
+    print(numpy.bincount(train1[:,2].astype(numpy.uint32)))
     #0/0
     
-    test1 = train1 #numpy.loadtxt("data/synthetic/clusterincluster.csv")
-    
-    X = train1[:, (0, 1)]
-    Y = train1[:, 2]
-    model = spnClassificationNBFit(X, Y)
-    #model = spnClassificationRFFit(X, Y)
-    
-    
-    
-    XT = test1[:, (0, 1)]
-    YT = test1[:, 2]
-    prediction = spnClassificationNBPred(model, XT)
-    #prediction = spnClassificationRFPred(model, XT)
-    print(accuracy_score(YT, prediction))
-    
-    
-    xvals = numpy.arange(numpy.min(X[:,0])-3, numpy.max(X[:,0])+3, 0.1)
-    yvals = numpy.arange(numpy.min(X[:,1])-3, numpy.max(X[:,1])+3, 0.1)
-    
-    XT2 = numpy.zeros((xvals.shape[0]*yvals.shape[0],2))
-    i = 0
-    for xv in xvals:
-        for yv in yvals:
-            XT2[i,:] = [xv,yv]
-            i += 1
-    
-    Y2 = spnClassificationNBPred(model, XT2)
-    #Y2 = spnClassificationRFPred(model, XT2)
-    
-    
-    sym = ["r.", "b.", "g.", "k."]
-
-
-    for c in numpy.unique(Y2).astype(int):
-        plt.plot(XT2[Y2==c,0], XT2[Y2==c,1], sym[c], markersize=2)
-    
-    sym = ["ro", "bo", "go", "ko"]    
-    for c in numpy.unique(Y).astype(int):
-        plt.plot(X[Y==c,0], X[Y==c,1], sym[c])
-        pass
-    plt.savefig("data/synthetic/"+name+'.png')
+#     test1 = train1 #numpy.loadtxt("data/synthetic/clusterincluster.csv")
+#     
+#     X = train1[:, (0, 1)]
+#     Y = train1[:, 2]
+#     model = spnClassificationNBFit(X, Y)
+#     #model = spnClassificationRFFit(X, Y)
+#     
+#     
+#     
+#     XT = test1[:, (0, 1)]
+#     YT = test1[:, 2]
+#     prediction = spnClassificationNBPred(model, XT)
+#     #prediction = spnClassificationRFPred(model, XT)
+#     print(accuracy_score(YT, prediction))
+#     
+#     
+#     xvals = numpy.arange(numpy.min(X[:,0])-3, numpy.max(X[:,0])+3, 0.1)
+#     yvals = numpy.arange(numpy.min(X[:,1])-3, numpy.max(X[:,1])+3, 0.1)
+#     
+#     XT2 = numpy.zeros((xvals.shape[0]*yvals.shape[0],2))
+#     i = 0
+#     for xv in xvals:
+#         for yv in yvals:
+#             XT2[i,:] = [xv,yv]
+#             i += 1
+#     
+#     Y2 = spnClassificationNBPred(model, XT2)
+#     #Y2 = spnClassificationRFPred(model, XT2)
+#     
+#     
+#     sym = ["r.", "b.", "g.", "k."]
+# 
+# 
+#     for c in numpy.unique(Y2).astype(int):
+#         plt.plot(XT2[Y2==c,0], XT2[Y2==c,1], sym[c], markersize=2)
+#     
+#     sym = ["ro", "bo", "go", "ko"]    
+#     for c in numpy.unique(Y).astype(int):
+#         plt.plot(X[Y==c,0], X[Y==c,1], sym[c])
+#         pass
+#     plt.savefig("data/synthetic/"+name+'.png')
 
         
    

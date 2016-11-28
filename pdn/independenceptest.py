@@ -10,7 +10,7 @@ import os
 import platform
 
 if platform.system() == 'Darwin':
-    os.environ["R_HOME"] = "/Library/Frameworks/R.framework/Resources/"
+    os.environ["R_HOME"] = "/usr/local/Cellar/r/3.3.2/R.framework/Resources/"
 #else:
 #    os.environ["R_HOME"] = "/usr/lib/R"
     

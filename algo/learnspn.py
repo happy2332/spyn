@@ -399,7 +399,7 @@ class LearnSPN(object):
                         #Using R
                         #from pdn.independenceptest import getIndependentGroups
                         #feature_clusters = retrieve_clustering(getIndependentGroups(fcdata, alpha=self._alpha, family=self.family), current_features)
-                        print(self.families[current_features])
+                        #print(self.families[current_features])
                         #feature_clusters = retrieve_clustering(getIndependentGroupsStabilityTest(fcdata, families=self.families[current_features], alpha=self._alpha), indexes=current_features)
                         feature_clusters = retrieve_clustering(getIndependentGroups(fcdata, alpha=self._alpha, families=self.families[current_features]), indexes=current_features)
 
@@ -437,7 +437,7 @@ class LearnSPN(object):
                     for child_slice in slices:
                         current_slice.add_child(child_slice)
 
-                    prod_node = ProductNode(data, current_instances, current_features, self.families)
+                    prod_node = ProductNode(data, current_instances, current_features)
                     prod_node.id = current_id
                     node_id_assoc[current_id] = prod_node
                     

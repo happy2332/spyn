@@ -931,9 +931,9 @@ class GaussianNode(Node):
 
 class BernoulliNode(Node):
 
-    def __init__(self, data, instances, features, families):
+    def __init__(self, data, instances, features):
 
-        Node.__init__(self, data, instances, features, families)
+        Node.__init__(self, data, instances, features)
 
         self.var = list(self.features)[0]
 
