@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 
 numpy.set_printoptions(threshold=numpy.inf)
 
-memory = Memory(cachedir="/tmp", verbose=0, compress=9)
+memory = Memory(cachedir="/data/d1/happy/spyn/experiments/softmax", verbose=0, compress=9)
 
 def getTopIndices(arr):
     # sort logits descanding
@@ -142,7 +142,7 @@ def spnClassificationGeneralFit(X, Y, maxClasses, alpha=0.001, min_slices=500):
 
 def spnClassificationGeneralPred(model, X, maxClasses):
     print("Total number of instances : ",X.shape[0])
-    predictions = numpy.zeros(X.shape[0],maxClasses)
+    predictions = numpy.zeros((X.shape[0],maxClasses))
     for i,feature in enumerate(X):
         if(i%100 == 0):
             print('Number of instances completed : ',i)
