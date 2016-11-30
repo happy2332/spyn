@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 
 numpy.set_printoptions(threshold=numpy.inf)
 
-memory = Memory(cachedir="/data/d1/happy/spyn/experiments/softmax", verbose=0, compress=9)
+memory = Memory(cachedir=".", verbose=0, compress=9)
 
 def getTopIndices(arr):
     # sort logits descanding
@@ -195,15 +195,26 @@ if __name__ == '__main__':
     mAP_41 = mapk(groundTruth_labels, np_sorted_logits_desc, k=41)
     print('mAP_41: %f' % mAP_41)
 
+    #in_train = in_train[:10,:10]
+    #out_train = out_train[:10,:10]
+    #out_train[:,5] = 1
+    #print('training_labels : ',out_train)
+   
+    #in_test = in_test[:10,:10]
     numClasses = out_train.shape[1]
+    in_test = numpy.c_[in_test,numpy.zeros((in_test.shape[0],numClasses))]
+    in_test[:,-numClasses:] = None
     start_time = time.time()
     spnmodel = spnClassificationGeneralFit(in_train,out_train,numClasses,min_slices=100)
     print("Learning SPN took %s seconds ---\n" % (time.time() - start_time))
     print("Testing Deep SPN...\n")
     start_time = time.time()
-    spnPred = spnClassificationGeneralPred(spnmodel,in_test,numClasses)
+    result = spnmodel.complete(in_test)
+    #spnPred = spnClassificationGeneralPred(spnmodel,in_test,numClasses)
     print("Testing SPN took %s seconds ---\n" % (time.time() - start_time))
-    spnPredLabels = getTopIndices(spnPred)
-    spnmAP_4 = mapk(groundTruth_labels, spnPredLabels, k=4)
-    print('mAP_4: %f' % spnmAP_4)
+#     spnPredLabels = getTopIndices(spnPred)
+#     spnmAP_4 = mapk(groundTruth_labels, spnPredLabels, k=4)
+#     print('mAP_4: %f' % spnmAP_4)
+    print('result :',result[:,-numClasses:])
+    numpy.savetxt('result.txt', result[:,-numClasses:])
     
