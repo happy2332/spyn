@@ -199,7 +199,8 @@ if __name__ == '__main__':
     #out_train = out_train[:10,:10]
     #out_train[:,5] = 1
     #print('training_labels : ',out_train)
-   
+    print(in_train.shape)
+    input()
     #in_test = in_test[:10,:10]
     numClasses = out_train.shape[1]
     in_test = numpy.c_[in_test,numpy.zeros((in_test.shape[0],numClasses))]

@@ -962,3 +962,6 @@ def test_categorical_clt_input_layer_eval():
             else:
                 # in the other case is 0.5
                 assert_almost_equal(s_log_prob, node.log_val)
+
+if __name__=='__main__':
+    test_sum_layer_backprop()

@@ -1,15 +1,15 @@
 from spn.linked.spn import Spn
 
-from spn.linked.layers import SumLayer
+from spn.linked.layers import SumLayer, BernoulliLayer
 from spn.linked.layers import ProductLayer
-from spn.linked.layers import CategoricalIndicatorLayer
-from spn.linked.layers import CategoricalSmoothedLayer
-from spn.linked.layers import CategoricalInputLayer
+# from spn.linked.layers import CategoricalIndicatorLayer
+# from spn.linked.layers import CategoricalSmoothedLayer
+# from spn.linked.layers import CategoricalInputLayer
 
 from spn.linked.nodes import SumNode
 from spn.linked.nodes import ProductNode
 from spn.linked.nodes import Node
-from spn.linked.nodes import CategoricalIndicatorNode
+#from spn.linked.nodes import CategoricalIndicatorNode
 
 from spn import MARG_IND
 from spn import LOG_ZERO
@@ -232,7 +232,7 @@ def test_spn_backprop():
     node4 = Node()
     node5 = Node()
 
-    input_layer = CategoricalInputLayer([node1, node2,
+    input_layer = BernoulliLayer([node1, node2,
                                          node3, node4,
                                          node5])
 
@@ -830,3 +830,6 @@ def test_spn_set_get_weights():
 def test_to_text():
     spn = create_valid_toy_spn()
     spn.to_text('test.spn')
+
+if __name__=='__main__':
+    test_spn_backprop()

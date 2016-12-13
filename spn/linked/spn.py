@@ -7,12 +7,13 @@ import sys
 
 from mlutils.fastmath import compileEq
 from spn import AbstractSpn
-from spn.linked.layers import PoissonLayer
 from spn.linked.layers import BernoulliLayer
 from spn.linked.layers import GaussianLayer
+from spn.linked.layers import PoissonLayer
 from spn.linked.layers import ProductLayer
 from spn.linked.layers import SumLayer
-from spn.linked.nodes import PoissonNode, GaussianNode, BernoulliNode
+from spn.linked.nodes import PoissonNode, GaussianNode, BernoulliNode, \
+    ProductNode, SumNode
 
 
 # from math import exp
@@ -394,6 +395,49 @@ class Spn(AbstractSpn):
         
         
         return G
+    
+    def to_tensorflow(self, feature_names, data):
+        
+        rootNode = self.getRoot()
+        
+        nodes = [rootNode]
+        
+        
+        result = ""
+        
+        
+        def addchild(c, data):
+            if isinstance(c, GaussianNode):
+                return ("n%s = GaussianNode(X[:,%s], 'n%s', %s, %s)\n" % (c.id, c.var, c.id, numpy.mean(data[:, c.var])+numpy.random.randn()/10.0, numpy.std(data[:, c.var])+numpy.random.randn()/10.0))
+            
+            if isinstance(c, BernoulliNode):
+                return ("n%s = BernoulliNode(X[:,%s], 'n%s', %s)\n" % (c.id, c.var, c.id, numpy.mean(data[:, c.var])+numpy.random.randn()/10.0))
+            
+            if isinstance(c, PoissonNode):
+                return ("n%s = PoissonNode(X[:,%s], 'n%s', %s)\n" % (c.id, c.var, c.id, numpy.mean(data[:, c.var])+numpy.random.randn()/10.0))
+                    
+            if isinstance(c, ProductNode):
+                return ("n%s = ProductNode('%s', %s)\n" % (c.id, "ProdNode"+str(c.id), ",".join(map(lambda x: "n"+str(x.id),c.children))  ))
+                
+            if isinstance(c, SumNode):
+                return ("n%s = SumNode('%s', %s)\n" % (c.id, "SumNode"+str(c.id), ",".join(map(lambda x: "n"+str(x.id),c.children))  ))
+            
+            
+            assert False, "invalid type " + str(type(c))
+        
+        while(len(nodes) > 0):
+            
+            node = nodes.pop(0)
+            
+            for i, c in enumerate(node.children):
+                result = addchild(c, data) + result
+                
+                if c.n_children() > 0:
+                    nodes.append(c)
+                    
+        result = result + addchild(rootNode, data)
+            
+        return result
 
     def save_pdf_graph(self, featureNames, outputfile=None, astopics=True, addStats=defaultStats):
         

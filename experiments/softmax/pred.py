@@ -6,53 +6,17 @@ Created on Nov 17, 2016
 from cvxpy import *
 from joblib.memory import Memory
 import numpy
+from sklearn import datasets
+from sklearn.feature_selection.tests.test_base import feature_names
+from sklearn.linear_model import LogisticRegression
 from sklearn.metrics.classification import accuracy_score
-import matplotlib.pyplot as plt
+from sklearn.model_selection._split import train_test_split
+
 from algo.learnspn import LearnSPN
+import matplotlib.pyplot as plt
 
 
-memory = Memory(cachedir="/tmp", verbose=0, compress=9)
-
-
-def spnClassificationRFPred(model, X):
-    
-    trainll = numpy.zeros((X.shape[0],model['classes'].shape[0]))
-    
-    for i, spn in enumerate(model["spns"]):
-        j = i % model['classes'].shape[0]
-        trainll[:, j] += numpy.exp(spn.eval(X, individual=True) + numpy.log(model['weights'][j]))
-
-    pmax = numpy.argmax(trainll, axis=1)
-
-    return model['classes'][pmax]
-    
-
-def spnClassificationRFFit(X, Y, random_spns = 10,alpha=0.001, min_slices=80):
-    classes = numpy.unique(Y)
-    spns = []
-    
-    ws = []
-    instances_idx = []
-    
-    numpy.random.seed(1337)
-    
-    for i in range(random_spns):
-        instances_idx.append(numpy.random.choice(X.shape[0], int(X.shape[0]*0.8) ))
-        NX = X[instances_idx[-1],:]
-        NY = Y[instances_idx[-1]]
-        for j in range(classes.shape[0]):
-            idx = NY == classes[j]
-            ws.append(float(numpy.sum(idx))/NX.shape[0])
-            
-            data_train_class = NX[idx, :]
-            spn = LearnSPN(cache=memory, alpha=alpha, min_instances_slice=min_slices, cluster_prep_method=None, families="gaussian").fit_structure(data_train_class)
-            spns.append(spn)
-            
-            
-    ws = ws/numpy.sum(ws)
-    print(ws)
-        
-    return {'classes':classes, 'spns':spns, 'weights':ws, 'instances_idx':instances_idx}
+memory = Memory(cachedir=".", verbose=0, compress=9)
 
 
 
@@ -72,17 +36,20 @@ def spnClassificationNBPred(model, X):
 def spnClassificationNBFit(X, Y, alpha=0.001, min_slices=80):
     classes = numpy.unique(Y)
     spns = []
-    
+    print('classes : ',classes)
     trainll = numpy.zeros((X.shape[0],classes.shape[0]))
     ws = []
+    print('shape : ',X.shape)
     for j in range(classes.shape[0]):
         idx = Y == classes[j]
         ws.append(float(numpy.sum(idx))/X.shape[0])
         
         data_train_class = X[idx, :]
-        spn = LearnSPN(cache=memory, alpha=alpha, min_instances_slice=min_slices, cluster_prep_method=None, families="gaussian").fit_structure(data_train_class)
+        print('learning spn')
+        families = 'gaussian'
+        spn = LearnSPN(cache=None, alpha=alpha, min_instances_slice=min_slices, cluster_prep_method=None, families=families, cluster_first=False).fit_structure(data_train_class)
         spns.append(spn)
-        
+        print('spn learned')
         trainll[idx, j] = spn.eval(data_train_class, individual=True)
         
 
@@ -130,7 +97,7 @@ def spnClassificationSPNFit(X, Y, alpha=0.001, min_slices=80):
         ws.append(float(numpy.sum(idx))/X.shape[0])
         
         data_train_class = X[idx, :]
-        spn = LearnSPN(cache=memory, alpha=alpha, min_instances_slice=min_slices, cluster_prep_method=None, family="gaussian").fit_structure(data_train_class)
+        spn = LearnSPN(cache=memory, alpha=alpha, min_instances_slice=min_slices, cluster_prep_method=None, families="gaussian").fit_structure(data_train_class)
         spns.append(spn)
         
         trainll[idx, j] = spn.eval(data_train_class, individual=True)
@@ -152,56 +119,57 @@ def spnClassificationSPNFit(X, Y, alpha=0.001, min_slices=80):
         
     return {'classes':classes, 'spns':spns, 'weights':ws}
 
-if __name__ == '__main__':
-    name = "twospirals"
-    train1 = numpy.loadtxt("data/synthetic/"+name+".csv", delimiter=",")
-    
-    print(train1.shape)
-    print(numpy.bincount(train1[:,2].astype(numpy.uint32)))
-    #0/0
-    
-#     test1 = train1 #numpy.loadtxt("data/synthetic/clusterincluster.csv")
-#     
-#     X = train1[:, (0, 1)]
-#     Y = train1[:, 2]
-#     model = spnClassificationNBFit(X, Y)
-#     #model = spnClassificationRFFit(X, Y)
-#     
-#     
-#     
-#     XT = test1[:, (0, 1)]
-#     YT = test1[:, 2]
-#     prediction = spnClassificationNBPred(model, XT)
-#     #prediction = spnClassificationRFPred(model, XT)
-#     print(accuracy_score(YT, prediction))
-#     
-#     
-#     xvals = numpy.arange(numpy.min(X[:,0])-3, numpy.max(X[:,0])+3, 0.1)
-#     yvals = numpy.arange(numpy.min(X[:,1])-3, numpy.max(X[:,1])+3, 0.1)
-#     
-#     XT2 = numpy.zeros((xvals.shape[0]*yvals.shape[0],2))
-#     i = 0
-#     for xv in xvals:
-#         for yv in yvals:
-#             XT2[i,:] = [xv,yv]
-#             i += 1
-#     
-#     Y2 = spnClassificationNBPred(model, XT2)
-#     #Y2 = spnClassificationRFPred(model, XT2)
-#     
-#     
-#     sym = ["r.", "b.", "g.", "k."]
-# 
-# 
-#     for c in numpy.unique(Y2).astype(int):
-#         plt.plot(XT2[Y2==c,0], XT2[Y2==c,1], sym[c], markersize=2)
-#     
-#     sym = ["ro", "bo", "go", "ko"]    
-#     for c in numpy.unique(Y).astype(int):
-#         plt.plot(X[Y==c,0], X[Y==c,1], sym[c])
-#         pass
-#     plt.savefig("data/synthetic/"+name+'.png')
+def spnClassificationGeneralFit(X, Y, maxClasses, alpha=0.001, min_slices=500, min_feature_slice = 30):
+    # need to convert Y into one-hot encoding as there is no multinomial till now
+    #Y = getOneHotEncoding(Y, maxClasses)
+    print('X shape : ',X.shape)
+    print('Y shape : ',Y.shape)
+    families = ['gaussian']*X.shape[1]+['binomial']*Y.shape[1]
+    data_train_class = numpy.c_[X,Y]
+    spn = LearnSPN(cache=memory, row_cluster_method="RandomPartition",ind_test_method="subsample",alpha=alpha, min_features_slice=min_feature_slice, min_instances_slice=min_slices, cluster_prep_method=None, families=families).fit_structure(data_train_class)
+    return spn
 
-        
-   
-   
+def spnClassificationGeneralPred(model, X, maxClasses):
+    print("Total number of instances : ",X.shape[0])
+    predictions = numpy.zeros((X.shape[0],maxClasses))
+    for i,feature in enumerate(X):
+        if(i%100 == 0):
+            print('Number of instances completed : ',i)
+        loglikelihood = numpy.zeros(maxClasses)
+        for j in range(maxClasses):
+            Y = numpy.zeros(maxClasses)
+            Y[j] = 1
+            data = numpy.transpose(numpy.r_[feature,Y])
+            ll = model.eval(data, individual=True)
+            loglikelihood[j] = ll[0]
+        predictions[i] = loglikelihood
+    return (predictions)
+
+
+def create_block_data(m,n):
+    X,y = datasets.make_blobs(n_samples=m,n_features=n,centers=1)
+    row1 = numpy.c_[X,numpy.zeros(X.shape)]
+    row2 = numpy.c_[numpy.zeros(X.shape),X]
+    block = numpy.r_[row1,row2]
+    return block
+
+if __name__ == '__main__':
+#     data = create_block_data(5, 2)
+#     print(data)
+#     spn_model = spnClassificationGeneralFit(data, numpy.zeros((data.shape[0],1)), maxClasses=1, min_slices=2, min_feature_slice=1)
+#     feature_names = ['x1','x2','x3','x4','x5']
+#     spn_model.save_pdf_graph(featureNames = feature_names, outputfile='out_spn.pdf')
+    numpy.random.seed(1222)
+    X,y = datasets.make_blobs(1000,1,centers=2)
+    train_x,test_x,train_y,test_y = train_test_split(X,y,test_size=0.3)
+    lrc = LogisticRegression()
+    lrc.fit(X,y)
+    pred_y = lrc.predict(test_x)
+    print('coeff : ',lrc.coef_)
+    print('intercept : %.3f'%(lrc.intercept_))
+    print('accuracy : %.3f'%(accuracy_score(test_y,pred_y)))
+    
+    spnmodel = spnClassificationNBFit(train_x, train_y, min_slices=train_x.shape[0])
+    spn_pred = spnClassificationNBPred(spnmodel, test_x)
+    print('accuracy : %.3f'%(accuracy_score(test_y,spn_pred)))
+    
